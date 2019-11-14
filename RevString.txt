@@ -1,0 +1,39 @@
+
+package practice1;
+
+import java.util.Scanner;
+
+
+public class ReverseString
+{
+    public void reverse(String s)
+    {
+        char[] c=s.toCharArray();
+	int left=0,right=c.length-1;
+	while(left<right)
+	{
+		if(!((c[left]>='a'&&c[left]<='z')||(c[left]>='A'&&c[left]<='Z')||(c[left]>='0'&&c[left]<='9')))
+			left++;
+		else if(!((c[right]>='a'&&c[right]<='z')||(c[right]>='A'&&c[right]<='Z')||(c[right]>='0'&&c[right]<='9')))
+			right--;
+		else
+		{
+			char t=c[left];
+			c[left]=c[right];
+			c[right]=t;
+			left++;
+			right--;
+		}
+	}
+        System.out.println("Reversed String:");
+	System.out.println(c);
+    }
+    public static void main(String[] args)
+    {
+        ReverseString r=new ReverseString();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a String:");
+        String str=sc.next();
+        r.reverse(str);
+    }
+}
